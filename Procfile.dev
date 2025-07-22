@@ -1,0 +1,3 @@
+web: rails s -u itsi
+vite: bin/vite dev
+redis: redis-server
