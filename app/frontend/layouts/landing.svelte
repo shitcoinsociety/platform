@@ -9,16 +9,20 @@
 </script>
 
 <header>
-  <div class="logo grow">
-    <img src="~/assets/logo.png?h=42" alt="Logo" class="logo-image" />
-    <span class="logo-text">Shitcoin Swap</span>
+  <div class="container">
+    <div class="flex items-center gap-4">
+      <div class="logo grow">
+        <img src="~/assets/logo.png?h=42" alt="Logo" class="logo-image" />
+        <span class="logo-text">Shitcoin Swap</span>
+      </div>
+      <a target="_blank" class="text-gray" href="https://github.com/shitcoinswap">
+        <div class="i-mdi:github w-1.8em h-1.8em">GitHub</div>
+      </a>
+      <button class="signup-btn" onclick={modal("/users/new")}>
+        Sign Up
+      </button>
+    </div>
   </div>
-  <a target="_blank" class="text-gray" href="https://github.com/shitcoinswap">
-    <div class="i-mdi:github w-1.8em h-1.8em">GitHub</div>
-  </a>
-  <button class="signup-btn" onclick={modal("/users/new")}>
-    Sign Up
-  </button>
 </header>
 
 
@@ -35,7 +39,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 1;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem;
     margin-inline: 1rem;
     top: 1rem;
     margin-bottom: 4rem;

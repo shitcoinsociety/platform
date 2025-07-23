@@ -13,16 +13,16 @@
     Join the world's largest open-source crypto MLM platform and earn passive income simply by holding our Revenue Share Token ($RST).
   </p>
 
-  <p class="description">
-    Enter your email address to get started.
-  </p>
-
   <form onsubmit={submit} class="email-form">
+    <p class="description">
+      Enter your email address to get started.
+    </p>
+
     <div class="form-group">
       <input
         type="email"
         bind:value={email}
-        placeholder="Enter your email address"
+        placeholder="Email address"
         class="email-input"
         required
       />
@@ -37,38 +37,22 @@
 </div>
 
 <style>
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
 
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1.5rem;
-  }
+
 
   .subtitle {
     font-size: 1.2rem;
-    color: #666;
     margin-bottom: 1rem;
     line-height: 1.6;
   }
 
   .description {
     font-size: 1rem;
-    color: #888;
     margin-bottom: 2rem;
   }
 
   .email-form {
-
+    color: #333;
     box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     border-radius: 8px;
@@ -77,13 +61,4 @@
 
 
 
-  @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-  }
 </style>
