@@ -11,11 +11,12 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActionController::BadRequest do |exception|
     flash[:error] = exception.message
-    redirect_back(fallback_location: root_path)
+    redirect_back
   end
 
   inertia_share do
     {
+      user_sgid: current_user.try(:signed_id, expires_in: nil),
       flash: flash.to_h
     }
   end
@@ -24,7 +25,7 @@ class ApplicationController < ActionController::Base
     request.headers["X-Inertia-Frame-Src"] || request.referer
   end
 
-  def redirect_back(fallback_location: root_path, **args)
+  def redirect_back(fallback_location: namespace_root_path, **args)
     if request.inertia?
       redirect_to inertia_referer || fallback_location, **args
     else
@@ -44,19 +45,23 @@ class ApplicationController < ActionController::Base
     unless session[:user_id]
       flash[:error] = "You must be logged in to access this page."
       flash[:modal] = "/session/new"
-      redirect_to root_path
+      redirect_to "/"
     end
   end
 
-  def show_in_modal(root = nil)
+  def namespace_root_path
+    namespace = self.class.module_parent_name&.underscore
+    if namespace.present? && respond_to?("#{namespace}_root_path")
+      send("#{namespace}_root_path")
+    else
+      "/"
+    end
+  end
+
+  def show_in_modal
     if request.headers["X-Inertia-Frame"] == "_top" || !request.inertia?
-      root ||= begin
-        namespace = self.class.module_parent_name&.underscore
-        helper = namespace.present? ? "#{namespace}_root_path" : "root_path"
-        respond_to?(helper) ? send(helper) : "/"
-      end
       flash[:modal] = request.fullpath
-      redirect_to root
+      redirect_to namespace_root_path
     end
   end
 end

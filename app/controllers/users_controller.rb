@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :show_in_modal
+
   def new
     @email = params[:email]
   end

@@ -14,7 +14,7 @@
   </p>
 
   <form onsubmit={submit} class="email-form">
-    <p class="description">
+    <p class="mb-2">
       Enter your email address to get started.
     </p>
 
@@ -23,7 +23,7 @@
         type="email"
         bind:value={email}
         placeholder="Email address"
-        class="email-input"
+        class="input"
         required
       />
     </div>
@@ -43,6 +43,7 @@ h1 {
   font-weight: bold;
   margin-top: 6rem;
   line-height: 1.2;
+  color: white;
 }
 
 @media (min-width: 768px) { 
@@ -55,11 +56,7 @@ h1 {
   font-size: 1.2rem;
   margin-bottom: 3rem;
   line-height: 1.6;
-}
-
-.description {
-  font-size: 1rem;
-  margin-bottom: 2rem;
+  color: white;
 }
 
 .email-form {

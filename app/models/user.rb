@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  PRIVATE_JSON_OPTIONS = {
+    only: [ :id, :email, :email_verified_at, :referral_code, :referrer_id ]
+  }
+
   has_secure_password validations: false
   has_secure_token :email_verification_token
 

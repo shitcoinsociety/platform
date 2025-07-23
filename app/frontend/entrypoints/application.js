@@ -3,11 +3,13 @@ import '~/layouts/global.css'
 
 import { createInertiaApp } from 'inertiax-svelte'
 import { mount } from 'svelte'
-import { subscribe } from 'activestate';
+import State, { subscribe } from 'activestate';
 import resolve from "./util/resolve";
 import { Toaster, toast } from 'svelte-sonner';
 import '~/lib/ui/loading'
 import { modal } from '~/lib/ui/Modal.svelte';
+
+subscribe('GlobalChannel')
 
 function showFlash(flash) {
   if (flash.notice) toast.success(flash.notice);
@@ -16,8 +18,19 @@ function showFlash(flash) {
   if (flash.modal) modal(flash.modal)();
 }
 
+let unsubscribe;
+function handleProps(props) {
+  if (!props) return;
+  if (props.flash) showFlash(props.flash);
+  if (props.user_sgid) {
+    unsubscribe = subscribe("UserChannel", {sgid: props.user_sgid});
+  } else {
+    unsubscribe?.()
+    // TODO: find a nicer way to reset state after logging out
+    State.user = null;
+  }
+}
 
-subscribe('GlobalChannel')
 
 mount(Toaster, {
   target: document.body,
@@ -30,13 +43,12 @@ mount(Toaster, {
 createInertiaApp({ 
   resolve,
   setup({ el, App, props }) {
-    const flash = props?.initialPage?.props?.flash;
     mount(App, { target: el, props })
-    if (flash) showFlash(flash);
+    handleProps(props?.initialPage?.props);
   },
 })
 
 document.addEventListener("inertia:success", (event) => {
-  const flash = event.detail.page.props.flash;
-  if (flash) showFlash(flash);
+  const props = event.detail.page.props;
+  handleProps(props);
 })

@@ -1,6 +1,4 @@
 <script>
-  import './dashboard.css';
-
   const {
     children
   } = $props();

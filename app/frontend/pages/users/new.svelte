@@ -14,17 +14,18 @@
 </script>
 
 <header>
-  <h1>Create a New Account</h1>
+  <h1>Sign up and get started</h1>
 </header>
 
-<main>
-  <form onsubmit={submit}>
+<form onsubmit={submit} class="contents">
+  <main>
     <div class="form-group">
+      <label for="email">Email</label>
       <input
         type="email"
         bind:value={$form.email}
-        placeholder="Enter your email address"
-        class="email-input"
+        placeholder="Enter your email"
+        class="input"
         class:error={$form.errors?.email}
         required
       />
@@ -32,14 +33,15 @@
         <span class="error-message">{$form.errors.email}</span>
       {/if}
     </div>
-
+  </main>
+  <footer>
     <button type="submit" class="btn primary" disabled={$form.processing}>
       {#if $form.processing}
         <span class="spinner"></span>
-        Creating Account...
+        Verifying...
       {:else}
-        Create Account
+        Continue
       {/if}
     </button>
-  </form>
-</main>
+  </footer>
+</form>
