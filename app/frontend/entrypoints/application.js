@@ -2,15 +2,21 @@ import "uno.css"
 
 import { createInertiaApp } from 'inertiax-svelte'
 import { mount } from 'svelte'
+import { subscribe } from 'activestate';
 import resolve from "./util/resolve";
 import { Toaster, toast } from 'svelte-sonner';
+import '~/lib/ui/loading'
+import { modal } from '~/lib/ui/Modal.svelte';
 
-// Function to show flash messages using svelte-sonner
 function showFlash(flash) {
   if (flash.notice) toast.success(flash.notice);
   if (flash.error) toast.error(flash.error);
   if (flash.success) toast.success(flash.success);
+  if (flash.modal) modal(flash.modal)();
 }
+
+
+subscribe('GlobalChannel')
 
 mount(Toaster, {
   target: document.body,
@@ -24,8 +30,8 @@ createInertiaApp({
   resolve,
   setup({ el, App, props }) {
     const flash = props?.initialPage?.props?.flash;
-    if (flash) showFlash(flash);
     mount(App, { target: el, props })
+    if (flash) showFlash(flash);
   },
 })
 

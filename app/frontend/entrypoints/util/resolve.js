@@ -6,6 +6,8 @@ export default async (name) => {
     throw new Error(`Page not found: ${name}`)
   }
   const page = await pages[`/pages/${name}.svelte`]()
-  const layout = await layouts['/layouts/default.svelte']()
+  const layout = name.startsWith('dashboard/')
+    ? await layouts['/layouts/dashboard.svelte']()
+    : await layouts['/layouts/landing.svelte']()
   return Object.assign({layout: layout.default}, page)
 }
