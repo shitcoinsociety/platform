@@ -42,11 +42,7 @@
     padding: 0.5rem 0rem;
     margin-inline: 1rem;
     top: 1rem;
-    margin-bottom: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+    
   }
 
 

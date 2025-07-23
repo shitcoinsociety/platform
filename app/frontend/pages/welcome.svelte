@@ -38,26 +38,37 @@
 
 <style>
 
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 6rem;
+  line-height: 1.2;
+}
 
-
-  .subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    line-height: 1.6;
+@media (min-width: 768px) { 
+  h1 {
+    font-size: 4rem;
   }
+}
 
-  .description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
 
-  .email-form {
-    color: #333;
-    box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.95);
-  }
+.description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.email-form {
+  color: #333;
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+}
 
 
 
