@@ -48,9 +48,13 @@
     body {
       background: url("/marinabay.jpg") no-repeat center center fixed;
       background-size: cover;
+      position: relative;
+      min-height: 100dvh;
     }
     #app {
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.4) 100%);
+      position: relative;
+      min-height: 100dvh;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
     }
 
     .container {
@@ -67,13 +71,17 @@
   }
   header {
     position: sticky;
-    border-radius: 16px;
+    border-radius: 10px;
     z-index: 1;
     padding: 0.5rem 0rem;
     margin-inline: 1rem;
     top: 1rem;
     color: white;
     transition: background 0.3s ease;
+  }
+  header button, header a {
+    font-size: 0.9rem;
+    font-weight: 600;
   }
   .logo-text {
     font-size: 1.5rem;
@@ -86,9 +94,8 @@
   }
   header.scrolled {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    color: #555;
 
     .logo-image {
       filter: brightness(1);

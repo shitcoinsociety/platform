@@ -98,16 +98,13 @@ button {
   cursor: pointer;
 }
 
-.btn {
-}
-
 .btn.primary {
   cursor: pointer;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, #1d233b 0%, #2e2537 100%);
+  background: black;
   border: none;
   border-radius: 12px;
   transition: all 0.3s ease;
