@@ -1,6 +1,7 @@
 body {
   background: url("/marinabay.jpg") no-repeat center center fixed;
   background-size: cover;
+  backdrop-filter: brightness(0.8);
   color: white;
 }
 

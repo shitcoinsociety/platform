@@ -6,7 +6,7 @@
 
 <div class="container">
   <h1>
-    Welcome to the Era of Financial Freedom!
+    A new era of financial freedom is here.
   </h1>
 
   <p class="subtitle">

@@ -77,12 +77,11 @@ main {
 }
 
 .btn.primary {
-  width: 100%;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1d233b 0%, #2e2537 100%);
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -91,15 +90,6 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-}
-
-.btn.primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-}
-
-.btn.primary:active {
-  transform: translateY(0);
 }
 
 .btn.primary:disabled {
