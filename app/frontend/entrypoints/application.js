@@ -1,4 +1,5 @@
 import "uno.css"
+import '~/layouts/global.css'
 
 import { createInertiaApp } from 'inertiax-svelte'
 import { mount } from 'svelte'

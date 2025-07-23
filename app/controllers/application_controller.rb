@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   use_inertia_instance_props
 
-  allow_browser versions: :modern
-
   rescue_from ActiveRecord::RecordInvalid do |exception|
     raise exception unless request.inertia?
 

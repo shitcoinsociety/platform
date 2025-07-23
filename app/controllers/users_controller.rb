@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def new
+    @email = params[:email]
   end
 
   def create
-    @user = User.create!(create_params)
+    user = User.create!(create_params)
 
-    session[:user_id] = @user.id
-    redirect_to dashboard_root_path
+    session[:user_id] = user.id
   end
 
   private

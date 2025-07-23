@@ -58,7 +58,7 @@
 
 <div class="modal_wrapper">
   <button class="modal_back_button" onclick={close} aria-label="Back" transition:fade|global></button>
-  <div class="modal grid-layout" aria-modal="true" transition:variable|global>
+  <div class="modal" aria-modal="true" transition:variable|global>
     <Frame {close} {...rest} />
   </div>
 </div>
@@ -90,7 +90,7 @@
 
     min-height: 400px;
     max-height: calc(100vh - 40px);
-    z-index: 1;
+    z-index: 100;
     position: fixed;
     bottom: 0;
     transform: translateY(calc((1 - var(--transition)) * 100%));

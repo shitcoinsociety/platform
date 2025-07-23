@@ -16,6 +16,5 @@ Rails.application.routes.draw do
     root "referrals#index"
   end
 
-  # Defines the root path route ("/")
-  root "users#new"
+  inertia "/" => "welcome"
 end
