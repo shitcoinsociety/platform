@@ -1,3 +1,5 @@
 # Shitcoin Swap
 
-The world's largest open-source crypto MLM.
+The open-source crypto MLM platform with built-in trading engine.
+
+© [Shitcoin Society](https://www.shitcoinsociety.com)
