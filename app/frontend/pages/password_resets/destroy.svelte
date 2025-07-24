@@ -5,19 +5,21 @@
 </script>
 
 <header>
-  <h2 class="mb-4">
-    Password changed
-  </h2>
+  <section>
+    <h2 class="mb-4">Password changed</h2>
+  </section>
 </header>
 <main>
-  <div class="form-container">
+  <section>
     <p>Your new password has been saved.</p>
-  </div>
+  </section>
 </main>
 <footer>
-  {#if State.user}
-    <a href="/dashboard" data-target="_top" class="btn primary" id="dashboard" onclick={close}>Go to Dashboard</a>
-  {:else}
-    <a href="/session/new" class="btn primary" id="sign_in">Sign in</a>
-  {/if}
+  <section>
+    {#if State.user}
+      <a href="/dashboard" data-target="_top" class="btn primary" id="dashboard" onclick={close}>Go to Dashboard</a>
+    {:else}
+      <a href="/session/new" class="btn primary" id="sign_in">Sign in</a>
+    {/if}
+  </section>
 </footer>

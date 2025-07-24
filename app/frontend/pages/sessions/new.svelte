@@ -21,47 +21,54 @@
 </script>
 
 <header>
-  <h1>Welcome back!</h1>
+  <section>
+    <h1>Welcome back!</h1>
+  </section>
 </header>
 
 <form onsubmit={submit} class="contents">
   <main>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
+    <section>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
         type="email"
         bind:value={$form.email}
         placeholder="Enter your email"
         class="input"
         class:error={$form.errors?.email}
         required
-      />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
         type="password"
         bind:value={$form.password}
         placeholder="Enter your password"
         class="input"
         class:error={$form.errors?.password}
         required
-      />
-    </div>
-    <p>
-       <a href="/password_resets/new">Forgot your password?</a>
-    </p>
+        />
+      </div>
+      <p>
+        <a href="/password_resets/new">Forgot your password?</a>
+      </p>
+    </section>
   </main>
   <footer>
-    <button type="submit" class="btn primary" disabled={$form.processing}>
-      {#if $form.processing}
+    <section>
+      <button type="submit" class="btn primary" disabled={$form.processing}>
+        {#if $form.processing}
         <span class="spinner"></span>
         Logging in...
-      {:else}
+        {:else}
         Log In
-      {/if}
-    </button>
-    <p class="mt-2">Don't have an account? <a href="/users/new">Sign up.</a></p>
+        {/if}
+      </button>
+      <p class="mt-2">Don't have an account? <a href="/users/new">Sign up.</a></p>
+    </section>
   </footer>
 </form>
 

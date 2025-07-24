@@ -6,6 +6,7 @@ import extractorSvelte from '@unocss/extractor-svelte'
 import UnoCSS from 'unocss/vite'
 import { resolve } from 'path'
 import { importAssets } from 'svelte-preprocess-import-assets'
+import { sveltePreprocess } from 'svelte-preprocess';
 import { imagetools } from 'vite-imagetools'
 
 export default defineConfig(({ mode }) => {

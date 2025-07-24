@@ -1,14 +1,23 @@
 <script>
+  import './landing.css'
+  
   import State from 'activestate';
   import { modal } from '~/lib/ui/Modal.svelte';
+  import { onMount } from 'svelte';
 
   const {
     children
   } = $props();
 
   let scrollY = $state(0);
-</script>
 
+  onMount(() => {
+    document.body.classList.add('landing');
+    return () => {
+      document.body.classList.remove('landing');
+    };
+  });
+</script>
 
 <svelte:window bind:scrollY />
 
@@ -50,31 +59,6 @@
 </footer>
 
 <style>
-  :global {
-    body {
-      background: url("/marinabay.jpg") no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-      min-height: 100dvh;
-    }
-    #app {
-      position: relative;
-      min-height: 100dvh;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding-inline: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        padding-inline: 2rem;
-      }
-    }
-  }
   header {
     position: sticky;
     border-radius: 10px;

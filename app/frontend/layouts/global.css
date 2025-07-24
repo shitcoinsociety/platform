@@ -1,6 +1,7 @@
 :root {
   --padding: 1.5rem;
   --color-primary: #af1e8d;
+  --color-border: #8884;
 }
 
 body:has(.modal) {
@@ -21,16 +22,22 @@ body:has(.modal) {
     padding-block: var(--padding)
   };
 }
-main, header, footer {
+section {
   display: grid;
   grid-template-columns: [full-start] var(--padding) [center-start] 1fr [center-end] var(--padding) [full-end];
+  border-bottom: 1px solid var(--color-border);
   > * {
     grid-column: center;
-    text-align: center;
   }
   > .full {
     grid-column: full;
   }
+}
+section:last-child {
+  border-bottom: none;
+}
+footer .btn {
+  width: 100%;
 }
 nav {
   grid-area: nav;
