@@ -13,13 +13,14 @@
     Join the world's largest open-source MLM platform and earn passive income simply by holding our Revenue Share Token ($RST).
   </p>
 
-  <form onsubmit={submit} class="email-form">
+  <form onsubmit={modal("/users/new?email=" + email)} class="email-form">
     <p class="mb-2">
       Enter your email address to get started.
     </p>
 
     <div class="form-group">
       <input
+        name="email"
         type="email"
         bind:value={email}
         placeholder="Email address"
@@ -28,7 +29,7 @@
       />
     </div>
     
-    <button onclick={modal("/users/new?email=" + email)}
+    <button
       type="submit" 
       class="btn primary">
       Start Your Journey

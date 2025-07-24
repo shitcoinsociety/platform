@@ -1,5 +1,9 @@
 <script>
   import { useForm } from 'inertiax-svelte';
+  import { getContext } from 'svelte';
+
+  const { router } = getContext("inertia")
+  const { close } = $props();
 
   const form = useForm({
     password: ''
@@ -7,7 +11,12 @@
 
   function submit(ev) {
     ev.preventDefault();
-    $form.post('/session?email=' + encodeURIComponent($form.email));
+    $form.post('/session?email=' + encodeURIComponent($form.email), {
+      onSuccess() {
+        close();
+        router.visit('/dashboard', {frame: '_top'});
+      }
+    });
   }
 </script>
 
@@ -39,6 +48,9 @@
         required
       />
     </div>
+    <p>
+       <a href="/password_resets/new">Forgot your password?</a>
+    </p>
   </main>
   <footer>
     <button type="submit" class="btn primary" disabled={$form.processing}>
@@ -49,6 +61,7 @@
         Log In
       {/if}
     </button>
+    <p class="mt-2">Don't have an account? <a href="/users/new">Sign up.</a></p>
   </footer>
 </form>
 

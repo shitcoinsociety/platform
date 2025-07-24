@@ -4,14 +4,20 @@
   } = $props();
 </script>
 
+<header>
+  <h1>
+    Account created!
+  </h1>
+</header>
+
 <main>
-  <section>
-    Account created successfully!
-  </section>
+  <p>
+    Your account has been successfully created.
+  </p>
 </main>
 
 <footer>
   <a href="/dashboard" class="btn primary" data-target="_top" onclick={close}>
-    Go to Dashboard
+    Continue
   </a>
 </footer>

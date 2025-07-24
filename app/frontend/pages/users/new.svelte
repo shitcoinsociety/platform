@@ -43,5 +43,6 @@
         Continue
       {/if}
     </button>
+    <p class="mt-2">Already have an account? <a href="/session/new">Log in.</a></p>
   </footer>
 </form>

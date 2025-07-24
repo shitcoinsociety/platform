@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActionController::BadRequest do |exception|
-    flash[:error] = exception.message
-    redirect_back
+    redirect_back inertia: {
+      errors: [ exception.message ]
+    }
   end
 
   inertia_share do

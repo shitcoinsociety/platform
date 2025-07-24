@@ -11,8 +11,9 @@ class SessionsController < ApplicationController
     unless user&.authenticate(params[:password])
       raise ActionController::BadRequest, "Invalid email or password"
     end
-    flash.now[:notice] = "You have been logged in"
+    flash[:notice] = "You have been logged in"
     session[:user_id] = user.id
+    redirect_back
   end
 
   def destroy

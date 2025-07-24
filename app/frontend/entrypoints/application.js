@@ -52,3 +52,11 @@ document.addEventListener("inertia:success", (event) => {
   const props = event.detail.page.props;
   handleProps(props);
 })
+
+document.addEventListener("inertia:error", (event) => {
+  const errors = event.detail.errors;
+  errors.forEach(error => {
+    console.log(error)
+    typeof error === 'string' && toast.error(error);
+  })
+})

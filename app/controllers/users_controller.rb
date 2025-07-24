@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create!(create_params)
-
+    user.update email_verified_at: Time.current
     session[:user_id] = user.id
   end
 

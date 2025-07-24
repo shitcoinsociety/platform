@@ -43,6 +43,12 @@
 
 {@render children()}
 
+<footer class="text-white mt-4">
+  <div class="container  text-left">
+    <p>© 2025 <a href="https://www.shitcoinsociety.com" target="_blank">Shitcoin Society</a>. All rights reserved.</p>
+  </div>
+</footer>
+
 <style>
   :global {
     body {
@@ -92,7 +98,7 @@
     filter: brightness(10);
     transition: all 0.3s ease;
   }
-  header.scrolled {
+  header, header.scrolled {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
