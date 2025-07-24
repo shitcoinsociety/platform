@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     user = User.create!(create_params)
     user.update email_verified_at: Time.current
     session[:user_id] = user.id
+    redirect_back
   end
 
   private

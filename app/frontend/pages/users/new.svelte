@@ -1,7 +1,9 @@
 <script>
   import { useForm } from "inertiax-svelte";
-
-  const { email } = $props();
+  import { getContext } from "svelte";
+  
+  const { router } = getContext("inertia");
+  const { email, close } = $props();
 
   const form = useForm({
     email,
@@ -9,7 +11,12 @@
 
   function submit(ev) {
     ev.preventDefault();
-    $form.post("/users");
+    $form.post("/users", {
+      onSuccess() {
+        close();
+        router.visit("/dashboard", { frame: "_top" });
+      }
+    })
   }
 </script>
 

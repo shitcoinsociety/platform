@@ -8,8 +8,7 @@ class SignupTest < ApplicationSystemTestCase
     fill_in "email", with: "derp@derp.com"
     click_on "Start Your Journey"
     click_on "Continue"
-    assert_text "Account created"
-    click_on "Continue"
+
 
     fill_in "password", with: "Derpsi2"
     click_on "Save password"
