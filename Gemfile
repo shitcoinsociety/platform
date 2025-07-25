@@ -53,6 +53,7 @@ group :test do
   gem "cuprite"
   gem "puma"
   gem "selenium-webdriver"
+  gem "capybara-email"
 end
 
 # Real-time updates with Action Cable and Svelte

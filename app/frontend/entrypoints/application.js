@@ -36,7 +36,8 @@ mount(Toaster, {
   target: document.body,
   props: {
     position: 'top-center',
-    richColors: true
+    richColors: true,
+    duration: ENV === 'test' ? 500 : 5000,
   }
 })
 

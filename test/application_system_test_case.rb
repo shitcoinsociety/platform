@@ -18,7 +18,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   options.merge! js_errors: true
 
-  driven_by :cuprite, using: :chromium, screen_size: [ 400, 900 ], options: options
+  driven_by :cuprite, using: :chromium, screen_size: [ 500, 900 ], options: options
 
   def fill_in(locator, with:, **options)
     sleep 0.1

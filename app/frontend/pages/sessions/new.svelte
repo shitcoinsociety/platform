@@ -1,9 +1,7 @@
 <script>
   import { useForm } from 'inertiax-svelte';
-  import { getContext } from 'svelte';
 
-  const { router } = getContext("inertia")
-  const { close } = $props();
+  const { close, router } = $props();
 
   const form = useForm({
     password: ''
@@ -14,7 +12,7 @@
     $form.post('/session?email=' + encodeURIComponent($form.email), {
       onSuccess() {
         close();
-        router.visit('/dashboard', {frame: '_top'});
+        router.visit('/dashboard', { frame: '_top' });
       }
     });
   }
@@ -33,6 +31,7 @@
       <div class="form-group">
         <label for="email">Email</label>
         <input
+        name="email"
         type="email"
         bind:value={$form.email}
         placeholder="Enter your email"
@@ -44,6 +43,7 @@
       <div class="form-group">
         <label for="password">Password</label>
         <input
+        name="password"
         type="password"
         bind:value={$form.password}
         placeholder="Enter your password"
@@ -64,7 +64,7 @@
         <span class="spinner"></span>
         Logging in...
         {:else}
-        Log In
+        Log in
         {/if}
       </button>
       <p class="mt-2">Don't have an account? <a href="/users/new">Sign up.</a></p>

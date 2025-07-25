@@ -54,7 +54,7 @@
     </main>
     <footer>
       <section>
-        <button class="btn primary" name="login" data-loader>Send email</button>
+        <button class="btn primary" name="login" data-loader>Request new password</button>
       </section>
     </footer>
   {/if}

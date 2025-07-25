@@ -5,7 +5,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    sleep 1 unless Rails.env.development?
     user = current_user || User.verified.find_by_email(params[:email])
     return unless user
     UserMailer.with(user: user).password_reset.deliver_later

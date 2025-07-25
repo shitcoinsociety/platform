@@ -1,9 +1,7 @@
 <script>
   import { useForm } from "inertiax-svelte";
-  import { getContext } from "svelte";
-  
-  const { router } = getContext("inertia");
-  const { email, close } = $props();
+
+  const { email, close, router } = $props();
 
   const form = useForm({
     email,
