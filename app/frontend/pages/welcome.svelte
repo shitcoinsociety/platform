@@ -64,7 +64,7 @@ h1 {
   box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   border-radius: 8px;
-  background: rgba(20, 18, 20, 0.95);
+  background: rgba(200,200,200,0.1);
 }
 
 </style>

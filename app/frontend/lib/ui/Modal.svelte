@@ -72,7 +72,8 @@
     position: fixed;
     inset: 0;
     cursor: default;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(100,100,100,0.1);
+    backdrop-filter: blur(2px);
   }
   
   .modal_wrapper {
@@ -84,7 +85,9 @@
   }
 
   .modal {
-    background-color: rgba(15, 15, 15, 0.75);
+    background-color: rgba(30,30,40, 1);
+    background: linear-gradient(135deg, #0f172aee 0%, #1e293bee 50%, #0f172aee 100%);
+ 
     border-radius: 1rem;
     border: 1px solid var(--color-border);
     backdrop-filter: blur(8px);

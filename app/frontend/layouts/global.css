@@ -1,14 +1,14 @@
 :root {
   --padding: 1rem;
-  --color-primary: #a61995;
-  --color-focus: #a61995;
+  --color-primary: #9e0661;
+  --color-focus: #9e0661;
   --color-border: #8884;
   @media (min-width: 600px) {
     --padding: 1.5rem;
   }
 }
 body {
-  background: black;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   color: white;
 }
 body:has(.modal) {
@@ -91,7 +91,7 @@ input[type="password"] {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   transition: all 0.3s ease;
-  background: #000000;
+  background: #00000044;
   &:focus {
     outline: none;
     border-color: var(--color-focus);
@@ -136,6 +136,7 @@ button {
 }
 .btn.primary {
   color: white;
+  /* background: black; */
   background: var(--color-primary);
 }
 .btn.secondary {
