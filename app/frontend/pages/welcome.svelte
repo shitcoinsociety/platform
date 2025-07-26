@@ -6,11 +6,11 @@
 
 <div class="container">
   <h1>
-    Welcome to the Era of Financial Freedom
+    Welcome to the World of Financial Freedom
   </h1>
 
   <p class="subtitle">
-    Join the world's largest open-source MLM platform and earn passive income simply by holding our Revenue Share Token ($RST).
+    Join the world's largest open-source crypto MLM platform and earn dividends simply by holding our Revenue Share Token ($RST).
   </p>
 
   <form onsubmit={modal("/users/new?email=" + email)} class="email-form">
@@ -60,11 +60,11 @@ h1 {
 }
 
 .email-form {
-  color: #333;
+  border: 1px solid var(--color-border);
   box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(20, 18, 20, 0.95);
 }
 
 

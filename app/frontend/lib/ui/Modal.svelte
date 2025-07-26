@@ -3,7 +3,7 @@
   import { Frame } from 'inertiax-svelte';
   import { history } from 'inertiax-core';
   import Modal from './Modal.svelte';
-  import { fade, scale } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
 
   export function modal(content, options) {
@@ -57,7 +57,7 @@
 </script>
 
 <div class="modal_wrapper">
-  <button class="modal_back_button" onclick={close} aria-label="Back" transition:fade|global></button>
+  <button class="modal_back_button" onclick={close} aria-label="Back" transition:fade|global={{duration: 200}}></button>
   <div class="modal" aria-modal="true" transition:variable|global>
     <Frame {close} {...rest}>
       <div class="absolute inset-0 grid place-items-center">
@@ -84,9 +84,10 @@
   }
 
   .modal {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(23, 23, 23, 0.65);
     border-radius: 1rem;
-    backdrop-filter: blur(4px);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     overflow-x: clip;
     overflow-y: auto;
@@ -102,7 +103,7 @@
       max-width: 420px;
       bottom: auto;
       position: relative;
-      transform: scale(var(--transition));
+      transform: translateY(calc((1 - var(--transition)) * 20px));
       opacity: var(--transition);
     }
   }

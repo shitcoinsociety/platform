@@ -35,7 +35,7 @@ function handleProps(props) {
 mount(Toaster, {
   target: document.body,
   props: {
-    position: 'top-center',
+    position: 'top-right',
     richColors: true,
     duration: ENV === 'test' ? 500 : 5000,
   }

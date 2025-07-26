@@ -5,20 +5,40 @@
     from_dividends = 0,
     from_commissions = 0
   } = $props();
+
+  function formatNumber(num) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'decimal',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(num);
+  }
 </script>
 
 <main>
   <section aria-labelledby="total-earnings">
-    <div class="text-center">
-      <h1 id="total-earnings">Total earnings</h1>
-      <p>{total_earnings} Satoshi</p>
+    <div class="card">
+      <h1 id="total-earnings">Total Earnings</h1>
+      <p class="amount">{formatNumber(total_earnings)} Satoshi</p>
+      <div class="flex">
+        <div class="btn primary !rounded-2em">
+          <div class="i-bitcoin-icons:receive-outline"></div>
+          Receive
+        </div>
+        <div class="btn primary !rounded-2em">
+          <div class="i-bitcoin-icons:send-outline"></div>
+          Send
+        </div>
+        <div class="btn primary !rounded-2em">
+          <div class="i-bitcoin-icons:plus-outline"></div>
+          Earn
+        </div>
+      </div>
     </div>
-  </section>
-  <section aria-labelledby="breakdown">
-    <h2 id="breakdown">Breakdown</h2>
+
     <div class="flex">
       <div class="grow">
-        From dividends
+        From Dividends
       </div>
       <div>
         {from_dividends} Satoshi
@@ -26,7 +46,7 @@
     </div>
     <div class="flex">
       <div class="grow">
-        From commissions
+        From Commissions
       </div>
       <div>
         {from_commissions} Satoshi
@@ -36,13 +56,25 @@
 </main>
 
 <style>
-  .row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
+  .card {
+    padding: 1rem;
+    background: conic-gradient(from 160deg at 50% 80%, #cfd8dc 0%, #e3f2fd 40%, #90a4ae 80%, #e3f2fd 100%);
+    box-shadow: 0 2px 8px rgba(80, 120, 180, 0.08);
+    border-radius: 1rem;
+    border: 1px solid #b0bec5;
+    position: relative;
+    color: black;
+    
   }
-  .col {
-    flex: 1;
-    text-align: left;
+
+  h1 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+
+  .amount {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 </style>

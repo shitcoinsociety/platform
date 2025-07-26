@@ -8,7 +8,7 @@ export default defineConfig({
       }
     }),
     presetIcons({
-      scale: 1.2,
+      scale: 1.4,
       extraProperties: {
         'display': 'inline-block',
         'vertical-align': 'middle',

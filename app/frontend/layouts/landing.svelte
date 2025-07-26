@@ -1,6 +1,6 @@
 <script>
   import './landing.css'
-  
+
   import State from 'activestate';
   import { modal } from '~/lib/ui/Modal.svelte';
   import { onMount } from 'svelte';
@@ -84,9 +84,8 @@
   }
   header, header.scrolled {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(200, 200, 200, 0.10);
     backdrop-filter: blur(10px);
-
     .logo-image {
       filter: brightness(1);
     }

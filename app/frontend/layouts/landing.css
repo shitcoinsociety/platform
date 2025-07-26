@@ -1,12 +1,14 @@
 body.landing {
-  background: url("/marinabay.jpg") no-repeat center center fixed;
-  background-size: cover;
+  /* background: url("/marinabay.jpg") no-repeat center center fixed; */
+  /* background-size: cover; */
+  
   position: relative;
   min-height: 100dvh;
   #app {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 30%, rgba(0,0,0) 100%);
     position: relative;
+    height: 100%;
     min-height: 100dvh;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
   }
   
   .container {
