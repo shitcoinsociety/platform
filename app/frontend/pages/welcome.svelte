@@ -6,7 +6,7 @@
 
 <div class="container">
   <h1>
-    Welcome to the World of Financial Freedom
+    Welcome to the Era of Financial Freedom
   </h1>
 
   <p class="subtitle">
@@ -31,7 +31,7 @@
     
     <button
       type="submit" 
-      class="btn primary">
+      class="btn primary big">
       Start Your Journey
     </button>
   </form>
@@ -66,7 +66,5 @@ h1 {
   border-radius: 8px;
   background: rgba(20, 18, 20, 0.95);
 }
-
-
 
 </style>

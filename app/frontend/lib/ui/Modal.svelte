@@ -84,7 +84,7 @@
   }
 
   .modal {
-    background-color: rgba(23, 23, 23, 0.65);
+    background-color: rgba(15, 15, 15, 0.75);
     border-radius: 1rem;
     border: 1px solid var(--color-border);
     backdrop-filter: blur(8px);

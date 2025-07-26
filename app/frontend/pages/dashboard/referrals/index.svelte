@@ -21,15 +21,15 @@
       <h1 id="total-earnings">Total Earnings</h1>
       <p class="amount">{formatNumber(total_earnings)} Satoshi</p>
       <div class="flex">
-        <div class="btn primary !rounded-2em">
+        <div class="btn secondary">
           <div class="i-bitcoin-icons:receive-outline"></div>
           Receive
         </div>
-        <div class="btn primary !rounded-2em">
+        <div class="btn secondary">
           <div class="i-bitcoin-icons:send-outline"></div>
           Send
         </div>
-        <div class="btn primary !rounded-2em">
+        <div class="btn secondary">
           <div class="i-bitcoin-icons:plus-outline"></div>
           Earn
         </div>

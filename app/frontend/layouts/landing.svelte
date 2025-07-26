@@ -35,14 +35,14 @@
         <a href="/session" data-method="delete">
           Log Out
         </a>
-        <a class="btn primary" href="/dashboard">
+        <a class="btn primary !flex-none" href="/dashboard">
           Dashboard
         </a>
       {:else}
         <button onclick={modal("/session/new")}>
           Log in
         </button>
-        <button class="btn primary" onclick={modal("/users/new")}>
+        <button class="btn primary !flex-none" onclick={modal("/users/new")}>
           Sign up
         </button>
       {/if}
