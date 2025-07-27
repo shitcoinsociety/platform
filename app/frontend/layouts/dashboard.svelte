@@ -49,7 +49,7 @@
     min-height: 100dvh;
     display: grid;
     max-width: 600px;
-    background: #00000044;
+    background: #00000022;
     border-left: 1px solid var(--color-border);
     border-right: 1px solid var(--color-border);
     margin: 0 auto;

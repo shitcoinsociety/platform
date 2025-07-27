@@ -86,12 +86,12 @@
 
   .modal {
     background-color: rgba(30,30,40, 1);
-    background: linear-gradient(135deg, #0f172aee 0%, #1e293bee 50%, #0f172aee 100%);
+    background: linear-gradient(135deg, #0e1218ee 0%, #0f1623ee 50%, #0e1218ee 100%);
  
     border-radius: 1rem;
     border: 1px solid var(--color-border);
     backdrop-filter: blur(8px);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.4);
     overflow-x: clip;
     overflow-y: auto;
     width: 100%;

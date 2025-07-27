@@ -10,6 +10,27 @@
 body {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   color: white;
+  position: relative;
+  min-height: 100dvh;
+  
+  #app {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 2%, rgba(0,0,0,0.4) 100%);
+    position: relative;
+    height: 100%;
+    min-height: 100dvh;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-inline: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      padding-inline: 2rem;
+    }
+  }
 }
 body:has(.modal) {
   overflow: hidden;
