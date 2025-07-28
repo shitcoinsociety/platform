@@ -17,5 +17,5 @@ Rails.application.routes.draw do
     root "referrals#index"
   end
 
-  inertia "/" => "welcome"
+  inertia "/" => "static/welcome"
 end

@@ -1,3 +1,6 @@
 web: rails s -u itsi
 vite: bin/vite dev
 redis: redis-server
+
+# collects historic prices in db
+prices: rake background:prices

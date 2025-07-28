@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_23_055754) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_28_083000) do
+  create_table "prices", force: :cascade do |t|
+    t.string "base", null: false
+    t.string "quote", null: false
+    t.float "value", null: false
+    t.datetime "delete_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["base", "quote"], name: "index_prices_on_base_and_quote"
+    t.index ["delete_at"], name: "index_prices_on_delete_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"

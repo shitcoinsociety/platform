@@ -1,6 +1,7 @@
 class GlobalChannel < ApplicationCable::Channel
   def subscribed
-    state("connected").set(true)
+    state("prices.sat-eur").set(Price.as_timeseries(:sat, :eur))
+    stream_from "global:prices"
   end
 
   def unsubscribed
