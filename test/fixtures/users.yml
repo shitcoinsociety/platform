@@ -1,0 +1,5 @@
+referrer:
+  email: referrer@example.com
+  password_digest: '<%= BCrypt::Password.create("password", cost: 4) %>'
+  referral_code: 'REF'
+  email_verified_at: <%= Time.now %>

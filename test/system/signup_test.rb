@@ -5,7 +5,7 @@ class SignupTest < ApplicationSystemTestCase
   include Capybara::Email::DSL
 
   test "sign up, wrong password, password reset" do
-    visit "/"
+    visit "/?ref=REF"
 
     fill_in "email", with: "derp@derp.com"
     click_on "Start Your Journey"
@@ -18,7 +18,9 @@ class SignupTest < ApplicationSystemTestCase
     end
 
     # email verification not yet implemented
-    User.last.update! email_verified_at: Time.current
+    user = User.last
+    user.update(email_verified_at: Time.current)
+    assert_equal users(:referrer), user.referrer
 
     click_on "Log out"
     assert_text "You have been logged out"

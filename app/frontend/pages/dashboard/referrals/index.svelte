@@ -1,11 +1,12 @@
 <script>
   import { convert } from '~/lib/util.svelte';
-
+  import { modal } from '~/lib/ui/Modal.svelte';
+  
   const {
     referrals_count,
-    total_earnings = 10,
-    from_dividends = 0,
-    from_commissions = 0
+    total_earnings,
+    from_dividends,
+    from_commissions
   } = $props();
 
   function formatNumber(num) {
@@ -32,10 +33,10 @@
           <div class="i-bitcoin-icons:send-outline"></div>
           Send
         </div>
-        <div class="btn secondary">
+        <button class="btn secondary" onclick={modal('/dashboard/referrals/new')}>
           <div class="i-bitcoin-icons:plus-outline"></div>
           Earn
-        </div>
+        </button>
       </div>
     </div>
 

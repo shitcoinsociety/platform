@@ -2,7 +2,9 @@ class Dashboard::ReferralsController < Dashboard::BaseController
   before_action :show_in_modal, only: [ :new ]
 
   def index
-    @referrals_count = current_user.referrals.count
+    @total_earnings = 0
+    @from_dividends = 0
+    @from_commissions = 0
   end
 
   def create

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   use_inertia_instance_props
 
+  before_action :save_ref_code
+
   rescue_from ActiveRecord::RecordInvalid do |exception|
     raise exception unless request.inertia?
 
@@ -63,6 +65,12 @@ class ApplicationController < ActionController::Base
     if request.headers["X-Inertia-Frame"] == "_top" || !request.inertia?
       flash[:modal] = request.fullpath
       redirect_to namespace_root_path
+    end
+  end
+
+  def save_ref_code
+    if params[:ref].present? && cookies[:ref_code].blank?
+      cookies[:ref_code] = { value: params[:ref], expires: 1.month.from_now }
     end
   end
 end

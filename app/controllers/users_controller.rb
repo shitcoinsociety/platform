@@ -8,6 +8,11 @@ class UsersController < ApplicationController
   def create
     user = User.create!(create_params)
     user.update email_verified_at: Time.current
+    if cookies[:ref_code].present?
+      referrer = User.find_by(referral_code: cookies[:ref_code])
+      user.update(referrer: referrer) if referrer
+      cookies.delete(:ref_code)
+    end
     session[:user_id] = user.id
     redirect_back
   end

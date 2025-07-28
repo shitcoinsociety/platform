@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :password_resets
 
   namespace :dashboard do
+    resources :referrals
+
     root "referrals#index"
   end
 
