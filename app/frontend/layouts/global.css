@@ -2,17 +2,20 @@
   --padding: 1rem;
   --color-primary: #9e0661;
   --color-focus: #9e0661;
-  --color-border: #8884;
-  @media (min-width: 600px) {
+  --color-border: rgba(83, 83, 116, 0.267);
+  @media (min-width: 768px) {
     --padding: 1.5rem;
   }
+}
+.color-primary {
+  color: var(--color-primary);
 }
 body {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   color: white;
   position: relative;
   min-height: 100dvh;
-  
+
   #app {
     background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 2%, rgba(0,0,0,0.4) 100%);
     position: relative;

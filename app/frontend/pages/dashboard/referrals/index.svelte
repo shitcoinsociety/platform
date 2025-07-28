@@ -1,7 +1,7 @@
 <script>
   import { convert } from '~/lib/util.svelte';
   import { modal } from '~/lib/ui/Modal.svelte';
-  
+
   const {
     referrals_count,
     total_earnings,
@@ -62,7 +62,7 @@
 <style>
   .card {
     padding: 1rem;
-    background: conic-gradient(from 160deg at 50% 80%, #cfd8dc 0%, #e3f2fd 40%, #90a4ae 80%, #e3f2fd 100%);
+    background: conic-gradient(from 225deg at 55% 80%, #a9bbc5 10%, #e3f2fd 50%, #a9bbc5 50%, #e3f2fd 60%);
     box-shadow: 0 2px 8px rgba(80, 120, 180, 0.08);
     border-radius: 1rem;
     border: 1px solid #b0bec5;

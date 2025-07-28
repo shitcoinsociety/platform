@@ -52,6 +52,8 @@
 <script>
   const { 
     close,
+    src,
+    children,
     ...rest
   } = $props();
 </script>
@@ -59,11 +61,15 @@
 <div class="modal_wrapper">
   <button class="modal_back_button" onclick={close} aria-label="Back" transition:fade|global={{duration: 200}}></button>
   <div class="modal" aria-modal="true" transition:variable|global>
-    <Frame {close} {...rest}>
-      <div class="absolute inset-0 grid place-items-center">
-        <div class="spinner"></div>
-      </div>
-    </Frame>
+    {#if src}
+      <Frame {close} {src} {...rest}>
+        <div class="absolute inset-0 grid place-items-center">
+          <div class="spinner"></div>
+        </div>
+      </Frame>
+    {:else}
+      {@render children()}
+    {/if}
   </div>
 </div>
 
@@ -72,7 +78,7 @@
     position: fixed;
     inset: 0;
     cursor: default;
-    background-color: rgba(100,100,100,0.1);
+    background-color: rgba(40,40,50,0.3);
     backdrop-filter: blur(2px);
   }
   
@@ -92,6 +98,9 @@
     border: 1px solid var(--color-border);
     backdrop-filter: blur(8px);
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.4);
+    /* Subtle silver bluish shimmer at the top using inset shadow */
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.4),
+          inset 0px 40px 50px -50px rgba(180, 210, 255, 0.28);
     overflow-x: clip;
     overflow-y: auto;
     width: 100%;
