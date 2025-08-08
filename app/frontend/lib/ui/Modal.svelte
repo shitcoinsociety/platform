@@ -100,7 +100,7 @@
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.4);
     /* Subtle silver bluish shimmer at the top using inset shadow */
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.4),
-          inset 0px 40px 50px -50px rgba(180, 210, 255, 0.28);
+          inset 0px 40px 70px -50px rgba(180, 210, 255, 0.1);
     overflow-x: clip;
     overflow-y: auto;
     width: 100%;

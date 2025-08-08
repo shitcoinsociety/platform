@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   resources :password_resets
 
   namespace :dashboard do
+    resources :transactions
     resources :referrals
+    resources :wallets
 
-    root "referrals#index"
+    root "transactions#index"
   end
 
   inertia "/" => "static/welcome"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_28_083000) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_08_103610) do
   create_table "prices", force: :cascade do |t|
     t.string "base", null: false
     t.string "quote", null: false
@@ -20,6 +20,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_28_083000) do
     t.datetime "updated_at", null: false
     t.index ["base", "quote"], name: "index_prices_on_base_and_quote"
     t.index ["delete_at"], name: "index_prices_on_delete_at"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "type"
+    t.string "symbol"
+    t.decimal "amount"
+    t.string "gateway_id"
+    t.string "gateway"
+    t.integer "confirmations"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_transactions_on_created_at"
+    t.index ["gateway_id"], name: "index_transactions_on_gateway_id"
+    t.index ["user_id", "symbol"], name: "index_transactions_on_user_id_and_symbol"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,6 +52,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_28_083000) do
     t.index ["email_verification_token"], name: "index_users_on_email_verification_token", unique: true
     t.index ["referral_code"], name: "index_users_on_referral_code", unique: true
     t.index ["referrer_id"], name: "index_users_on_referrer_id"
+  end
+
+  create_table "wallets", force: :cascade do |t|
+    t.string "type"
+    t.integer "index", default: 0
+    t.string "user_id"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_wallets_on_address"
+    t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
   add_foreign_key "users", "users", column: "referrer_id"

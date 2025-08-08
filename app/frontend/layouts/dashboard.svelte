@@ -1,5 +1,5 @@
 <script>
-    import State from "activestate";
+  import State from "activestate";
   import { modal } from "../lib/ui/Modal.svelte";
  
   import { onMount } from "svelte";
@@ -94,7 +94,7 @@
     }
 
     :global(> main) {
-      padding-top: var(--padding);
+      /* padding-top: var(--padding); */
       background: #00000022;
       border-left: 1px solid var(--color-border);
       border-right: 1px solid var(--color-border);

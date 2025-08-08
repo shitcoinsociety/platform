@@ -2,6 +2,22 @@ require "net/http"
 require "json"
 
 namespace :background do
+  desc "Scan blockchain for new incoming transactions"
+  task scanner: :environment do
+    loop do
+      begin
+        puts "Scanning for new transactions..."
+
+        Network::Bitcoin.scan!
+
+        sleep 30
+      rescue => e
+        puts "Error scanning for transactions: #{e.message}"
+        sleep 10
+      end
+    end
+  end
+
   desc "Send updated prices to frontend"
   task prices: :environment do
     def fetch_btc_eur_price

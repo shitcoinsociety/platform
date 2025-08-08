@@ -60,6 +60,7 @@ section {
   display: grid;
   grid-template-columns: [full-start] var(--padding) [center-start] 1fr [center-end] var(--padding) [full-end];
   border-bottom: 1px solid var(--color-border);
+  /* padding-block: var(--padding); */
   > * {
     grid-column: center;
   }

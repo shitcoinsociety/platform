@@ -66,3 +66,7 @@ gem "vite_rails", "~> 3.0"
 # Error notification
 gem "sentry-ruby"
 gem "sentry-rails"
+
+gem "observer"
+gem "bitcoinrb", require: "bitcoin"
+gem "httparty"

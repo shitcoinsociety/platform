@@ -9,6 +9,9 @@ class User < ApplicationRecord
   belongs_to :referrer, class_name: "User", optional: true
   has_many :referrals, -> { verified }, class_name: "User", foreign_key: "referrer_id"
 
+  has_many :wallets
+  has_many :transactions
+
   scope :verified, -> { where.not(email_verified_at: nil) }
 
   validates :email,
