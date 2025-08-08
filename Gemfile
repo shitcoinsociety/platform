@@ -60,7 +60,7 @@ end
 gem "activestate"
 
 # Single page apps without an API
-gem "inertia_rails", "~> 3.9"
+gem "inertia_rails", "~> 3.10"
 gem "vite_rails", "~> 3.0"
 
 # Error notification
