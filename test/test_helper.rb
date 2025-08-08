@@ -1,7 +1,8 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
-  require "capybara/email"
+require "minitest/mock"
+require "capybara/email"
 
 module ActiveSupport
   class TestCase

@@ -33,18 +33,18 @@ class Networks::Bitcoin
     tx["vout"].each_with_index do |output, index|
       address = output["scriptPubKey"]["addresses"]&.first
       value = output["value"]
-      script_pub_key = output["scriptPubKey"]
 
       wallet = Wallet.for("btc").find_by(address: address)
 
       return unless wallet
 
+      sats = (BigDecimal(value.to_s) * 100_000_000).to_i
       Transaction::Deposit.create!(
         user_id: wallet.user_id,
-        amount: value,
-        symbol: "btc",
-        txid: tx["txid"],
-        vout: index
+        amount: sats,
+        symbol: "sat",
+        gateway: "bitcoin",
+        gateway_id: [ tx["txid"], index ].join(":")
       )
     end
   end
