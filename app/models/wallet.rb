@@ -8,12 +8,8 @@ class Wallet < ApplicationRecord
   validates :address, presence: true, uniqueness: { scope: :type }
   validates :index, presence: true, uniqueness: { scope: :type }
 
-  def self.for(symbol)
-    if symbol == "btc"
-      where(type: "Wallet::Bitcoin")
-    else
-      raise ArgumentError, "Unsupported wallet type"
-    end
+  def self.for(subclass)
+    where(type: "Wallet::#{subclass.capitalize}")
   end
 
   def initialize(attributes = {})

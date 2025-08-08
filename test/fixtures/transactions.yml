@@ -3,13 +3,13 @@
 one:
   type: 
   amount: 9.99
-  gateway_id: MyString
-  gateway: MyString
+  network_id: MyString
+  network: MyString
   confirmations: 1
 
 two:
   type: 
   amount: 9.99
-  gateway_id: MyString
-  gateway: MyString
+  network_id: MyString
+  network: MyString
   confirmations: 1

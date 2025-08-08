@@ -3,7 +3,11 @@ class Networks::Bitcoin
     Rails.logger.info "Scanning Bitcoin network for new transactions..."
 
     current_height = get_block_count
-    last_height = Rails.cache.fetch("bitcoin_last_height", expires_in: 1.hour) do
+    if current_height.nil?
+      return Rails.logger.info "Bitcoin RPC getblockcount failed."
+    end
+
+    last_height = Rails.cache.fetch("bitcoin_last_height") do
       current_height - 1
     end
 
@@ -11,8 +15,13 @@ class Networks::Bitcoin
       return Rails.logger.info "No new blocks found."
     end
 
-    for height in (last_height + 1..current_height)
-      process_block(height)
+    (last_height + 1).upto(current_height) do |height|
+      begin
+        process_block(height)
+        Rails.cache.write("bitcoin_last_height", height)
+      rescue => e
+        Rails.logger.info "Error processing block ##{height}: #{e.class} - #{e.message}"
+      end
     end
   end
 
@@ -20,7 +29,9 @@ class Networks::Bitcoin
     Rails.logger.info "Processing block ##{height}..."
 
     block_hash = call_rpc("getblockhash", [ height ])
-    block = call_rpc("getblock", [ block_hash, 1 ])
+    # Fetch full transaction details (verbosity 2)
+    block = call_rpc("getblock", [ block_hash, 2 ])
+    return unless block
 
     transactions = block["tx"] || []
 
@@ -30,22 +41,24 @@ class Networks::Bitcoin
   end
 
   def self.scan_transaction(tx)
-    tx["vout"].each_with_index do |output, index|
-      address = output["scriptPubKey"]["addresses"]&.first
+    Array(tx["vout"]).each_with_index do |output, index|
+      spk = output["scriptPubKey"] || {}
+      address = spk["address"] || spk["addresses"]&.first
       value = output["value"]
 
-      wallet = Wallet.for("btc").find_by(address: address)
+      next unless address
 
-      return unless wallet
+      wallet = Wallet.for("bitcoin").find_by(address: address)
+      next unless wallet
 
       sats = (BigDecimal(value.to_s) * 100_000_000).to_i
-      Transaction::Deposit.create!(
-        user_id: wallet.user_id,
-        amount: sats,
-        symbol: "sat",
-        gateway: "bitcoin",
-        gateway_id: [ tx["txid"], index ].join(":")
-      )
+      network_id = [ tx["txid"], index ].join(":")
+
+      Transaction::Deposit.find_or_create_by!(network: "bitcoin", network_id: network_id) do |dep|
+        dep.user_id = wallet.user_id
+        dep.amount = sats
+        dep.symbol = "sat"
+      end
     end
   end
 
@@ -56,17 +69,23 @@ class Networks::Bitcoin
   def self.call_rpc(method, params)
     url = ENV["BTC_RPC"]
 
-    response = HTTParty.post(url,
-      body: {
-        jsonrpc: "2.0", method: method, params: params, id: 1
-      }.to_json,
-      headers: {
-        "Content-Type" => "application/json"
-      })
-    if response.success?
-      response.parsed_response["result"]
-    else
-      Rails.logger.info "Error calling RPC #{method}: #{response.parsed_response["error"]}"
+    begin
+      response = HTTParty.post(url,
+        body: {
+          jsonrpc: "2.0", method: method, params: params, id: 1
+        }.to_json,
+        headers: {
+          "Content-Type" => "application/json"
+        })
+      if response.success?
+        response.parsed_response["result"]
+      else
+        err = (response.parsed_response["error"] rescue response.body)
+        Rails.logger.info "Error calling RPC #{method}: #{err}"
+        nil
+      end
+    rescue => e
+      Rails.logger.info "RPC request failed for #{method}: #{e.class} - #{e.message}"
       nil
     end
   end

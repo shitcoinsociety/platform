@@ -27,13 +27,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_08_103610) do
     t.string "type"
     t.string "symbol"
     t.decimal "amount"
-    t.string "gateway_id"
-    t.string "gateway"
+    t.string "network_id"
+    t.string "network"
     t.integer "confirmations"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_transactions_on_created_at"
-    t.index ["gateway_id"], name: "index_transactions_on_gateway_id"
+    t.index ["network_id"], name: "index_transactions_on_network_id"
     t.index ["user_id", "symbol"], name: "index_transactions_on_user_id_and_symbol"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end

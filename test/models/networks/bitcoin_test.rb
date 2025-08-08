@@ -46,7 +46,7 @@ class NetworksBitcoinTest < ActiveSupport::TestCase
     assert_equal user.id, deposit.user_id
     assert_equal "sat", deposit.symbol
     assert_equal 1_500_000, deposit.amount.to_i
-    assert_equal "bitcoin", deposit.gateway
-    assert_equal "testtxid123:0", deposit.gateway_id
+    assert_equal "bitcoin", deposit.network
+    assert_equal "testtxid123:0", deposit.network_id
   end
 end
