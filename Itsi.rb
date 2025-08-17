@@ -136,9 +136,9 @@ rackup_file "./config.ru"
 #   expose_headers: [ "X-Total-Count" ],
 #   max_age: 3600
 
-# Redirect everything to www.shitcoinswap.com
-location hosts: [ "shitcoinswap.com" ] do
-  redirect type: :permanent, to: "https://www.shitcoinswap.com{path_and_query}"
+# Redirect everything to www.shitcoinsociety.com
+location hosts: [ "shitcoinsociety.com" ] do
+  redirect type: :permanent, to: "https://www.shitcoinsociety.com{path_and_query}"
 end
 
 

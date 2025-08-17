@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
       imagetools(),
       mode !== "development" && sentryVitePlugin({
         org: "shitcoinsociety",
-        project: "shitcoinswap"
+        project: "platform"
       })
     ],
 

@@ -24,8 +24,7 @@ class UserMailer < ApplicationMailer
     @link = params[:link]
     mail(
       to: params[:email],
-      from: "Shitcoin Swap <noreply@shitcoinswap.com>",
-      subject: "You've been invited to join Shitcoin Swap"
+      subject: "You've been invited to join the Shitcoin Society"
     )
   end
 end

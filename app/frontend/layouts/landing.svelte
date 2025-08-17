@@ -26,9 +26,9 @@
     <div class="flex items-center gap-4">
       <div class="logo grow">
         <img src="~/assets/logo.png?h=42" alt="Logo" class="logo-image" />
-        <span class="logo-text hidden sm:block">Shitcoin Swap</span>
+        <span class="logo-text hidden sm:block">Shitcoin Society</span>
       </div>
-      <a target="_blank" href="https://github.com/shitcoinswap">
+      <a target="_blank" href="https://github.com/shitcoinsociety">
         <div class="i-mdi:github w-1.8em h-1.8em">GitHub</div>
       </a>
       {#if State.user}
