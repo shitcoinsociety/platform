@@ -1,6 +1,7 @@
 import { createInertiaApp } from '@inertiajs/svelte'
 import  { mount } from 'svelte';
 import Layout from "../layouts/default.svelte"
+import { Toaster, toast } from 'svelte-sonner';
 
 createInertiaApp({
   // Disable progress bar
@@ -18,10 +19,6 @@ createInertiaApp({
       console.error(`Missing Inertia page component: '${name}.svelte'`)
     }
 
-    // To use a default layout, import the Layout component
-    // and use the following line.
-    // see https://inertia-rails.dev/guide/pages#default-layouts
-    //
     return { default: page.default, layout: page.layout || Layout }
   },
 
@@ -36,4 +33,25 @@ createInertiaApp({
       )
     }
   },
+})
+
+function showFlash(flash) {
+  if (flash.notice) toast.success(flash.notice);
+  if (flash.error) toast.error(flash.error);
+  if (flash.success) toast.success(flash.success);
+  if (flash.modal) modal(flash.modal)();
+}
+
+document.addEventListener("inertia:success", (event) => {
+  const flash = event.detail.page.props.flash;
+  showFlash(flash)
+})
+
+mount(Toaster, {
+  target: document.body,
+  props: {
+    theme: 'dark',
+    position: 'top-right',
+    richColors: true
+  }
 })

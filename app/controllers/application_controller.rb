@@ -1,8 +1,35 @@
 class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :modern
-
+  # allow_browser versions: :modern
   use_inertia_instance_props
+
+  rescue_from ActiveRecord::RecordInvalid do |exception|
+    raise exception unless request.inertia?
+
+    redirect_back inertia: {
+      errors: exception.record.errors
+    }
+  end
+
+  inertia_share do
+    {
+      current_user: current_user.as_json(only: %i[id email]),
+      flash: flash.to_h
+    }
+  end
+
+  # Overwrite redirect_back so we don't have to specify fallback_location every time
+  def redirect_back(fallback_location: namespace_root_path, **args)
+    super
+  end
+
+  def namespace_root_path
+    namespace = self.class.module_parent_name&.underscore
+    if namespace.present? && respond_to?("#{namespace}_root_path")
+      send("#{namespace}_root_path")
+    else
+      "/"
+    end
+  end
 
   def current_user
     Current.user ||= User.find(session[:user_id]) if session[:user_id]

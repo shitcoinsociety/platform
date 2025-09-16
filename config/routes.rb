@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   resources :users
+  resource :session
 
   root "users#show"
 end
