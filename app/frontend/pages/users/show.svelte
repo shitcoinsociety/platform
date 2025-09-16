@@ -2,4 +2,15 @@
   const { balance } = $props()
 </script>
 
-Satoshis: { balance }
+
+<main>
+  <section>
+
+    Satoshis: { balance }
+    
+    <a href="/deposits/new?symbol=sat" class="btn">Receive</a>
+    
+  </section>
+
+</main>
+

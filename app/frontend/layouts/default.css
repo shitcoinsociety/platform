@@ -5,3 +5,10 @@
   max-width: 900px;
   min-height: 100dvh;
 }
+
+.btn {
+  border: 1px solid #555;
+  border-radius: 10em;
+  padding: 8px 24px;
+  display: inline-block;
+}
