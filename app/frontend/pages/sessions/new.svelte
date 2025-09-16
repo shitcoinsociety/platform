@@ -4,20 +4,14 @@
 
   function submit(event) {
     event.preventDefault();
-    $form.post("/users")
+    $form.post("/session")
   }
 </script>
 
-<h1>Sign Up</h1>
+Log in
 
 <form onsubmit={submit}>
-  {#if $form.errors.email}
-    <div style="color: red">{$form.errors.email}</div>
-  {/if}
-  {#if $form.errors.password}
-    <div style="color: red">{$form.errors.password}</div>
-  {/if}
   <input type="email" bind:value={$form.email} placeholder="Email" />
   <input type="password" bind:value={$form.password} placeholder="Password" />
-  <button type="submit">Sign Up</button>
+  <button type="submit">Log In</button>
 </form>

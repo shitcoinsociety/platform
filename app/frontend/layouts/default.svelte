@@ -18,6 +18,7 @@
     <button onclick={logout}>Log out</button>
   {:else}
     Not logged in
+    <a href="/session/new">Log in</a>
   {/if}
 </header>
 

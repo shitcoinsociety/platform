@@ -1,24 +1,5 @@
-# README
+# Shitcoin Society
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Shitcoin Society is an open source crypto MLM platform.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All development happens live on stream at https://twitch.tv/buhrmiproggt
