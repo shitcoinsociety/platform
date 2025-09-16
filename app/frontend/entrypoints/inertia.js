@@ -1,5 +1,6 @@
 import { createInertiaApp } from '@inertiajs/svelte'
 import  { mount } from 'svelte';
+import Layout from "../layouts/default.svelte"
 
 createInertiaApp({
   // Disable progress bar
@@ -8,6 +9,7 @@ createInertiaApp({
   // progress: false,
 
   resolve: (name) => {
+    
     const pages = import.meta.glob('../pages/**/*.svelte', {
       eager: true,
     })
@@ -20,9 +22,7 @@ createInertiaApp({
     // and use the following line.
     // see https://inertia-rails.dev/guide/pages#default-layouts
     //
-    // return { default: page.default, layout: page.layout || Layout }
-
-    return page
+    return { default: page.default, layout: page.layout || Layout }
   },
 
   setup({ el, App, props }) {

@@ -1,0 +1,7 @@
+#app {
+  margin: 0 auto;
+  border-left: 1px solid #555;
+  border-right: 1px solid #555;
+  max-width: 900px;
+  min-height: 100dvh;
+}
