@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   # allow_browser versions: :modern
   use_inertia_instance_props
 
+  before_action :save_ref_code
+
   rescue_from ActiveRecord::RecordInvalid do |exception|
     raise exception unless request.inertia?
 
@@ -12,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   inertia_share do
     {
-      current_user: current_user.as_json(only: %i[id email]),
+      current_user: current_user.as_json(User::JSON_OPTIONS),
       flash: flash.to_h
     }
   end
@@ -33,6 +35,12 @@ class ApplicationController < ActionController::Base
 
   def current_user
     Current.user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def save_ref_code
+    if params[:ref].present?
+      session[:ref_code] = params[:ref]
+    end
   end
 
   def require_user

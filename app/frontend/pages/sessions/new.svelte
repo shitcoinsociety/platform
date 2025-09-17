@@ -8,10 +8,14 @@
   }
 </script>
 
-Log in
-
-<form onsubmit={submit}>
-  <input type="email" bind:value={$form.email} placeholder="Email" />
-  <input type="password" bind:value={$form.password} placeholder="Password" />
-  <button type="submit">Log In</button>
-</form>
+<main>
+  <section>
+    Log in
+    
+    <form onsubmit={submit}>
+      <input type="email" bind:value={$form.email} placeholder="Email" />
+      <input type="password" bind:value={$form.password} placeholder="Password" />
+      <button type="submit">Log In</button>
+    </form>
+  </section>
+</main>

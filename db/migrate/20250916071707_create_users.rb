@@ -4,6 +4,9 @@ class CreateUsers < ActiveRecord::Migration[8.0]
       t.string :email
       t.string :password_digest
 
+      t.string :ref_code
+      t.integer :referrer_id
+
       t.timestamps
     end
   end

@@ -8,10 +8,16 @@ class UsersController < ApplicationController
 
   def show
     @balance = current_user.balance_for(:sat).current
+    @ref_count = current_user.referrals.count
   end
 
   def create
     user = User.create!(create_params)
+    if session[:ref_code]
+      user.referrer = User.find_by(ref_code: session[:ref_code])
+      user.save!
+      session[:ref_code] = nil
+    end
     session[:user_id] = user.id
     flash[:notice] = "You have been logged in!"
     redirect_to root_path
