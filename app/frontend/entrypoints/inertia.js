@@ -25,6 +25,7 @@ createInertiaApp({
   setup({ el, App, props }) {
     if (el) {
       mount(App, { target: el, props })
+      showFlash(props.initialPage.props.flash)
     } else {
       console.error(
         'Missing root element.\n\n' +
@@ -36,6 +37,7 @@ createInertiaApp({
 })
 
 function showFlash(flash) {
+  if (!flash) return
   if (flash.notice) toast.success(flash.notice);
   if (flash.error) toast.error(flash.error);
   if (flash.success) toast.success(flash.success);

@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @balance = current_user.balance_for(:sat).current
+    @sat_balance = current_user.balance_for(:sat).current
+    @rst_balance = current_user.balance_for(:rst).current
     @ref_count = current_user.referrals.count
   end
 

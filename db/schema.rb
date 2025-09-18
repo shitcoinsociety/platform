@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_16_080557) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_18_081108) do
   create_table "balances", force: :cascade do |t|
     t.integer "user_id"
     t.decimal "current", precision: 20, scale: 8, default: "0.0"
@@ -19,6 +19,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_16_080557) do
     t.datetime "updated_at", null: false
     t.index ["symbol"], name: "index_balances_on_symbol"
     t.index ["user_id"], name: "index_balances_on_user_id"
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.string "code"
+    t.float "amount"
+    t.integer "redeemed_by_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

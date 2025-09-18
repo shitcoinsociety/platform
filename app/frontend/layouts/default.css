@@ -15,8 +15,12 @@ section:not(:last-child) {
 }
 
 .btn {
-  border: 1px solid #555;
+  border: 1px solid var(--border-color);
   border-radius: 10em;
   padding: 8px 24px;
   display: inline-block;
+}
+
+input {
+  border: 1px solid var(--border-color);
 }

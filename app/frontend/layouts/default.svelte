@@ -23,7 +23,7 @@
 </header>
 
 <nav>
-
+  <a href="/redemptions/new">Redeem Code</a>
 </nav>
 
 {@render children()}

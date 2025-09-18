@@ -16,7 +16,7 @@ class User < ApplicationRecord
     format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def balance_for(symbol)
-    balances.first_or_create(symbol: symbol)
+    balances.where(symbol: symbol).first_or_create
   end
 
   private
