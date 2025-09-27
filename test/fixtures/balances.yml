@@ -1,11 +1,5 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+admin:
   user_id: 1
-  current: 9.99
-  symbol: MyString
+  current: 420000000
+  symbol: rst
 
-two:
-  user_id: 1
-  current: 9.99
-  symbol: MyString

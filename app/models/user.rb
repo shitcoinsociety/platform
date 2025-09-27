@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :balances
+  has_many :transactions
+  has_many :deposits, class_name: "Transaction::Deposit"
+
   has_many :referrals, class_name: "User", foreign_key: "referrer_id"
   belongs_to :referrer, class_name: "User", optional: true
 
@@ -17,6 +20,16 @@ class User < ApplicationRecord
 
   def balance_for(symbol)
     balances.where(symbol: symbol).first_or_create
+  end
+
+  def send!(receiver, amount:, symbol:, description: nil)
+    Transaction::Transfer.create!(
+      user: receiver,
+      sender: self,
+      amount: amount,
+      symbol: symbol,
+      description: description
+    )
   end
 
   private

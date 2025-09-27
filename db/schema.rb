@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_18_081108) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_27_112716) do
   create_table "balances", force: :cascade do |t|
     t.integer "user_id"
     t.decimal "current", precision: 20, scale: 8, default: "0.0"
@@ -27,6 +27,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_18_081108) do
     t.integer "redeemed_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "type"
+    t.decimal "amount"
+    t.string "symbol"
+    t.integer "user_id"
+    t.integer "sender_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["symbol"], name: "index_transactions_on_symbol"
+    t.index ["type"], name: "index_transactions_on_type"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
