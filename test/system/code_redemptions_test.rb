@@ -4,7 +4,7 @@ class CodeRedemptionsTest < ApplicationSystemTestCase
   test "logged in user can redeem a code" do
     admin = User.find(1)
 
-    assert_equal admin.balance_for(:rst).current, 420_000_000
+    assert_equal admin.position_for(:rst).current, 420_000_000
 
     visit "/"
     click_on "Redeem Code"
@@ -28,7 +28,7 @@ class CodeRedemptionsTest < ApplicationSystemTestCase
 
     assert_text "Code redeemed successfully"
 
-    assert_equal admin.reload.balance_for(:rst).current, 419_999_000
+    assert_equal admin.reload.position_for(:rst).current, 419_999_000
 
     assert_text "RST: 1000"
 

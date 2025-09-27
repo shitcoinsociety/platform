@@ -6,19 +6,19 @@ class Transaction < ApplicationRecord
   validates :amount, presence: true
   validates :symbol, presence: true
 
-  after_create :update_balances
+  after_create :update_positions
 
   private
 
-  def update_balances
-    balance = user.balance_for(symbol)
-    balance.current += amount
-    balance.save!
+  def update_positions
+    position = user.position_for(symbol)
+    position.current += amount
+    position.save!
 
     if sender
-      sender_balance = sender.balance_for(symbol)
-      sender_balance.current -= amount
-      sender_balance.save!
+      sender_position = sender.position_for(symbol)
+      sender_position.current -= amount
+      sender_position.save!
     end
   end
 end

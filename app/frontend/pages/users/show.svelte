@@ -1,13 +1,13 @@
 <script>
-  const { sat_balance, rst_balance, current_user, ref_count } = $props()
+  const { sat_position, rst_position, current_user, ref_count } = $props()
 </script>
 
 <main>
   <section>
-    <h2>Balances</h2>
-    Satoshi: { sat_balance }
+    <h2>Positions</h2>
+    Satoshi: { sat_position }
     <br />
-    RST: { rst_balance }
+    RST: { rst_position }
   </section>
   <section>
     <h2>Total referrals: {ref_count}</h2>

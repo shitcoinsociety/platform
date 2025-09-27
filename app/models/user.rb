@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  has_many :balances
+  has_many :positions
   has_many :transactions
   has_many :deposits, class_name: "Transaction::Deposit"
 
@@ -18,8 +18,8 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false },
     format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  def balance_for(symbol)
-    balances.where(symbol: symbol).first_or_create
+  def position_for(symbol)
+    positions.where(symbol: symbol).first_or_create
   end
 
   def send!(receiver, amount:, symbol:, description: nil)
