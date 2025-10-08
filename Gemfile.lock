@@ -53,6 +53,8 @@ GEM
       activemodel (= 8.0.2.1)
       activesupport (= 8.0.2.1)
       timeout (>= 0.4.0)
+    activestate (2.0.6)
+      rails (>= 7.0.4)
     activestorage (8.0.2.1)
       actionpack (= 8.0.2.1)
       activejob (= 8.0.2.1)
@@ -255,6 +257,10 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
+    redis (5.4.1)
+      redis-client (>= 0.22.0)
+    redis-client (0.26.1)
+      connection_pool
     regexp_parser (2.11.3)
     reline (0.6.2)
       io-console (~> 0.5)
@@ -367,6 +373,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  activestate (~> 2.0)
   bcrypt (~> 3.1.7)
   bootsnap
   brakeman
@@ -378,6 +385,7 @@ DEPENDENCIES
   kamal
   puma (>= 5.0)
   rails (~> 8.0.2, >= 8.0.2.1)
+  redis
   rubocop-rails-omakase
   solid_cable
   solid_cache

@@ -1,13 +1,32 @@
 <script>
-  const { sat_position, rst_position, current_user, ref_count } = $props()
+  import State from 'activestate'
+
+  const { 
+    sat_position,
+    rst_position,
+    current_user,
+    ref_count
+  } = $props()
 </script>
 
 <main>
   <section>
+    Connected: { State.connected ? 'yes' : 'no' }
     <h2>Positions</h2>
     Satoshi: { sat_position }
     <br />
     RST: { rst_position }
+  </section>
+  <section>
+    <h2>Transaction History</h2>
+    {#each State.transactions || [] as tx (tx.id)}
+      <div class="transaction">
+        <div>{tx.type}</div>
+        <div>{tx.created_at}</div>
+        <div>{tx.description}</div>
+        <div>{tx.amount} {tx.symbol}</div>
+      </div>
+    {/each}
   </section>
   <section>
     <h2>Total referrals: {ref_count}</h2>

@@ -57,3 +57,6 @@ end
 gem "inertia_rails", "~> 3.11"
 
 gem "vite_rails", "~> 3.0"
+gem "activestate", "~> 2.0"
+
+gem "redis"

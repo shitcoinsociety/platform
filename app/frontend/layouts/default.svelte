@@ -3,10 +3,17 @@
   import { router } from "@inertiajs/svelte"
   import "./default.css"
 
+  import { subscribe } from 'activestate'
+  import { onMount } from "svelte";
+
   const {
-    children, current_user
+    children, current_user, signed_user_id
    } = $props()
 
+  onMount(() => {
+    const unsubscribe = subscribe('UserChannel', { signed_user_id })
+  })
+  
   function logout() {
     router.delete("/session")
   }

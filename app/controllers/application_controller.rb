@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   inertia_share do
     {
       current_user: current_user.as_json(User::JSON_OPTIONS),
+      signed_user_id: current_user.try(:signed_id, expires_in: 1.hour),
       flash: flash.to_h
     }
   end

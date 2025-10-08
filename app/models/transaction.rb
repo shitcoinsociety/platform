@@ -7,8 +7,13 @@ class Transaction < ApplicationRecord
   validates :symbol, presence: true
 
   after_create :update_positions
+  after_create_commit :broadcast
 
   private
+
+  def broadcast
+    UserChannel[user].state("transactions").push(self.as_json)
+  end
 
   def update_positions
     position = user.position_for(symbol)
