@@ -11,6 +11,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_09_27_112716) do
+  create_table "assets", force: :cascade do |t|
+    t.integer "user_id"
+    t.decimal "amount", precision: 20, scale: 8, default: "0.0"
+    t.string "symbol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["symbol"], name: "index_assets_on_symbol"
+    t.index ["user_id"], name: "index_assets_on_user_id"
+  end
+
   create_table "coupons", force: :cascade do |t|
     t.string "code"
     t.float "amount"
@@ -18,16 +28,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_27_112716) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_coupons_on_code", unique: true
-  end
-
-  create_table "positions", force: :cascade do |t|
-    t.integer "user_id"
-    t.decimal "current", precision: 20, scale: 8, default: "0.0"
-    t.string "symbol"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["symbol"], name: "index_positions_on_symbol"
-    t.index ["user_id"], name: "index_positions_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|

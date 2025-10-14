@@ -2,8 +2,8 @@
   import State from 'activestate'
 
   const { 
-    sat_position,
-    rst_position,
+    sat_asset,
+    rst_asset,
     current_user,
     ref_count
   } = $props()
@@ -12,10 +12,10 @@
 <main>
   <section>
     Connected: { State.connected ? 'yes' : 'no' }
-    <h2>Positions</h2>
-    Satoshi: { sat_position }
+    <h2>Your Assets</h2>
+    Satoshi: { sat_asset }
     <br />
-    RST: { rst_position }
+    RST: { rst_asset }
   </section>
   <section>
     <h2>Transaction History</h2>
