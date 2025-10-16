@@ -1,4 +1,4 @@
-![ss](https://github.com/user-attachments/assets/f7c9919f-efd3-412f-a988-ed53d4e2b1b4)
+<img width="100%" alt="Welcome" src="https://github.com/user-attachments/assets/ae695415-b660-4910-bb48-1b8bbfce5147" />
 
 # Welcome to the Shitcoin Society
 
