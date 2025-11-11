@@ -2,7 +2,7 @@
 
 # Welcome to Shitcoin Swap
 
-Shitcoin Swap is an in-development crypto investment platform and trading engine by and for the Shitcoin Society.
+Shitcoin Swap is an in-development crypto investment platform with built-in trading engine, created by and for the Shitcoin Society.
 
 You can follow its development on [Twitch](https://twitch.tv/buhrmidevelops) and [YouTube](https://youtube.com/@buhrmidevelops).
 
