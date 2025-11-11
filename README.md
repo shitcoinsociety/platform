@@ -6,13 +6,17 @@ Shitcoin Swap is an in-development crypto investment platform and trading engine
 
 You can follow its development on [Twitch](https://twitch.tv/buhrmidevelops) and [YouTube](https://youtube.com/@buhrmidevelops).
 
-### Earn Passive Income
+## Earn Passive Income
 
 All revenue - be it from token sales, trading, and listing fees - is being distributed to our *shareholders*. Everyone who holds our Revenue Share Token ($RST) automatically becomes a shareholder for as long as they hold the token. By holding this token, you automatically earn passive income from the platform's success.
 
 ### Token Information
+
 Name: Revenue Share Token<br>
 Symbol: RST<br>
 Max Supply: 420,000,000<br>
 Initial Supply: 420,000,000
 
+### Where to buy
+
+You will be able to purchase RST directly on [our platform](https://www.shitcoinswap.com) from existing shareholders.
