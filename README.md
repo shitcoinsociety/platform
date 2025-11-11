@@ -1,8 +1,8 @@
 ![tothemoon](https://github.com/user-attachments/assets/5729f248-09e5-4cf6-b4db-10ac00342cc9)
 
-# Welcome to the Shitcoin Society
+# Welcome to Shitcoin Swap
 
-The Shitcoin Society is an in-development crypto investment platform with an integrated trading engine.
+Shitcoin Swap is an in-development crypto investment platform and trading engine by and for the Shitcoin Society.
 
 You can follow its development on [Twitch](https://twitch.tv/buhrmidevelops) and [YouTube](https://youtube.com/@buhrmidevelops).
 
