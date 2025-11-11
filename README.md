@@ -17,6 +17,4 @@ Symbol: RST<br>
 Max Supply: 420,000,000<br>
 Initial Supply: 420,000,000
 
-### Where to buy
-
-You will be able to purchase RST directly on [our platform](https://www.shitcoinswap.com) from existing shareholders.
+You'll be able to pick up some RSTs directly from [our founder](https://github.com/buhrmi) on the Shitcoin Swap website.
