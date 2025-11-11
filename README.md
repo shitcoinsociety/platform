@@ -1,4 +1,4 @@
-<img width="100%" alt="Welcome" src="https://github.com/user-attachments/assets/ae695415-b660-4910-bb48-1b8bbfce5147" />
+![tothemoon](https://github.com/user-attachments/assets/5729f248-09e5-4cf6-b4db-10ac00342cc9)
 
 # Welcome to the Shitcoin Society
 
