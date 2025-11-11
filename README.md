@@ -8,7 +8,7 @@ You can follow its development on [Twitch](https://twitch.tv/buhrmidevelops) and
 
 ### Earn Passive Income
 
-All revenue from token sales, trading, and listing fees is being distributed to our Revenue Share Token ($RST) holders, also known as *the shareholders*. This token is your key to earning passive income from the platform's success.
+All revenue - be it from token sales, trading, and listing fees - is being distributed to our *shareholders*. Everyone who holds our Revenue Share Token ($RST) automatically becomes a shareholder for as long as they hold the token. By holding this token, you automatically earn passive income from the platform's success.
 
 ### Token Information
 Name: Revenue Share Token<br>
