@@ -2,11 +2,11 @@
 
 # Welcome to the Shitcoin Society
 
-The Shitcoin Society is an open-source crypto investment club with integrated trading engine.
+The Shitcoin Society is an open-source crypto investment platform with an integrated trading engine.
 
-Everything we do serves the purpose of increasing the value of our revenue share token ($RST). These tokens can not be bought, you can only receive them via coupon codes handed out by our members.
+You can follow its development on [Twitch](https://twitch.tv/buhrmidevelops) and [YouTube](https://youtube.com/@buhrmidevelops).
 
-You can follow our development on [Twitch](https://twitch.tv/buhrmidevelops) and [YouTube](https://youtube.com/@buhrmidevelops).
+All revenue from token sales, trading, and listing fees is being distributed among our Revenue Share Token ($RST) holders.
 
 ### Token Information
 Name: Revenue Share Token<br>
