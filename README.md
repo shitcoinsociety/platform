@@ -6,7 +6,7 @@ The Shitcoin Society is an open-source crypto investment platform with an integr
 
 You can follow its development on [Twitch](https://twitch.tv/buhrmidevelops) and [YouTube](https://youtube.com/@buhrmidevelops).
 
-All revenue from token sales, trading, and listing fees is being distributed among our Revenue Share Token ($RST) holders.
+All revenue from token sales, trading, and listing fees is being distributed to our Revenue Share Token ($RST) holders, also known as *the shareholders*.
 
 ### Token Information
 Name: Revenue Share Token<br>
