@@ -11,8 +11,7 @@
 
 <main>
   <section>
-    Connected: { State.connected ? 'yes' : 'no' }
-    <h2>Your Assets</h2>
+    <h2>My Assets</h2>
     Satoshi: { sat_asset }
     <br />
     RST: { rst_asset }

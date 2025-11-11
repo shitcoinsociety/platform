@@ -60,3 +60,5 @@ gem "vite_rails", "~> 3.0"
 gem "activestate", "~> 2.0"
 
 gem "redis"
+gem "dotenv-rails", groups: [ :development, :test ]
+gem "mailgun-ruby"
