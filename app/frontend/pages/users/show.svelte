@@ -2,8 +2,8 @@
   import State from 'activestate'
 
   const { 
-    sat_asset,
-    rst_asset,
+    sat_balance,
+    rst_balance,
     current_user,
     ref_count
   } = $props()
@@ -11,10 +11,10 @@
 
 <main>
   <section>
-    <h2>My Assets</h2>
-    Satoshi: { sat_asset }
+    <h2>My Balances</h2>
+    Satoshi: { sat_balance }
     <br />
-    RST: { rst_asset }
+    RST: { rst_balance }
   </section>
   <section>
     <h2>Transaction History</h2>

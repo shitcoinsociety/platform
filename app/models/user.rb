@@ -5,9 +5,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  has_many :assets
-  has_many :transactions
-  has_many :deposits, class_name: "Transaction::Deposit"
+  has_many :accounts
+  has_many :transactions, foreign_key: :receiver_id
+  has_many :deposits, class_name: "Transaction::Deposit", foreign_key: :receiver_id
 
   has_many :referrals, class_name: "User", foreign_key: "referrer_id"
   belongs_to :referrer, class_name: "User", optional: true
@@ -18,13 +18,13 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false },
     format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  def asset(symbol)
-    assets.where(symbol: symbol).first_or_create
+  def account(symbol)
+    accounts.where(symbol: symbol).first_or_create
   end
 
   def send!(receiver, amount:, symbol:, description: nil)
     Transaction::Transfer.create!(
-      user: receiver,
+      receiver: receiver,
       sender: self,
       amount: amount,
       symbol: symbol,
